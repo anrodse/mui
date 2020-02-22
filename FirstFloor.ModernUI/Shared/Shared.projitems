@@ -220,64 +220,61 @@
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationFailedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.Designer.cs">
+      <DependentUpon>Translations.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.es.Designer.cs">
-      <DependentUpon>Resources.es.resx</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.es.Designer.cs">
+      <DependentUpon>Translations.es.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.fr.Designer.cs">
-      <DependentUpon>Resources.fr.resx</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.fr.Designer.cs">
+      <DependentUpon>Translations.fr.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.pl.Designer.cs">
-      <DependentUpon>Resources.pl.resx</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.pl.Designer.cs">
+      <DependentUpon>Translations.pl.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.ru.Designer.cs">
-      <DependentUpon>Resources.ru.resx</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.ru.Designer.cs">
+      <DependentUpon>Translations.ru.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.it.Designer.cs">
-      <DependentUpon>Resources.it.resx</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.it.Designer.cs">
+      <DependentUpon>Translations.it.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.resx">
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.resx">
+      <LastGenOutput>Translations.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.es.resx">
-      <LastGenOutput>Resources.es.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.es.resx">
+      <LastGenOutput>Translations.es.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.fr.resx">
-      <LastGenOutput>Resources.fr.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.fr.resx">
+      <LastGenOutput>Translations.fr.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.pl.resx">
-      <LastGenOutput>Resources.pl.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.pl.resx">
+      <LastGenOutput>Translations.pl.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.ru.resx">
-      <LastGenOutput>Resources.ru.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.ru.resx">
+      <LastGenOutput>Translations.ru.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Resources.it.resx">
-      <LastGenOutput>Resources.it.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.it.resx">
+      <LastGenOutput>Translations.it.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\Texts\" />
   </ItemGroup>
 </Project>

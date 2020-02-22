@@ -23,7 +23,7 @@ namespace FirstFloor.ModernUI.Windows
         public Task<object> LoadContentAsync(Uri uri, CancellationToken cancellationToken)
         {
             if (!Application.Current.Dispatcher.CheckAccess()) {
-               throw new InvalidOperationException(Resources.UIThreadRequired);
+               throw new InvalidOperationException(Translations.UIThreadRequired);
             }
             
             // scheduler ensures LoadContent is executed on the current UI thread

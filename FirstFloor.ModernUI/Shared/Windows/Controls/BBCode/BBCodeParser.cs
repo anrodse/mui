@@ -192,13 +192,13 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                     span.Inlines.Add(new LineBreak());
                 }
                 else if (token.TokenType == BBCodeLexer.TokenAttribute) {
-                    throw new ParseException(Resources.UnexpectedToken);
+                    throw new ParseException(Translations.UnexpectedToken);
                 }
                 else if (token.TokenType == BBCodeLexer.TokenEnd) {
                     break;
                 }
                 else {
-                    throw new ParseException(Resources.UnknownTokenType);
+                    throw new ParseException(Translations.UnknownTokenType);
                 }
             }
         }

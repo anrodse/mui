@@ -108,7 +108,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             }
             catch (Exception error) {
                 // display navigation failures
-                ModernDialog.ShowMessage(error.Message, ModernUI.Resources.NavigationFailed, MessageBoxButton.OK);
+                ModernDialog.ShowMessage(error.Message, ModernUI.Translations.NavigationFailed, MessageBoxButton.OK);
             }
         }
 
