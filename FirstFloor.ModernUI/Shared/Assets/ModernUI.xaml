@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+					xmlns:modernui="clr-namespace:FirstFloor.ModernUI">
 
-
-    <ResourceDictionary.MergedDictionaries>
+	
+	<ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Button.xaml" />
         <ResourceDictionary Source="Calendar.xaml" />
         <ResourceDictionary Source="CheckBox.xaml" />
@@ -28,9 +29,9 @@
         <ResourceDictionary Source="TextBox.xaml" />
         <ResourceDictionary Source="ToolTip.xaml" />
         <ResourceDictionary Source="TreeView.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+	</ResourceDictionary.MergedDictionaries>
 
-    <!-- default accent colors and brushes -->
+	<!-- default accent colors and brushes -->
     <Color x:Key="AccentColor">#1ba1e2</Color>
     <SolidColorBrush x:Key="Accent" Color="{DynamicResource AccentColor}" />
 
@@ -41,7 +42,14 @@
     <FontFamily x:Key="FixedFontFamily">Consolas</FontFamily>
     <sys:Double x:Key="FixedFontSize">13.333</sys:Double>
 
-    <sys:Double x:Key="SmallFontSize">11</sys:Double>
+	<FontFamily x:Key="TitleFontFamily">pack://application:,,,/FirstFloor.ModernUI;component/Resources/Fonts/#Gunship Condensed</FontFamily>
+	<!--<FontFamily x:Key="TitleFontFamily">ms-appx:///FirstFloor.ModernUI/Resources/Fonts/Gunship-Condensed.ttf#Gunship Condensed</FontFamily>-->
+	<!--<FontFamily x:Key="TitleFontFamily">pack://application:,,,/FirstFloor.ModernUI;component/Resources/Fonts/#Gunship Condensed</FontFamily>-->
+	<!--<FontFamily x:Key="TitleFontFamily">pack://application:,,,./Resources/Fonts/#Gunship Condensed</FontFamily>-->
+	<!--<FontFamily x:Key="TitleFontFamily">/AssemblyNamespace;component/Resources/Fonts/#Gunship Condensed</FontFamily>-->
+	<!--<FontFamily x:Key="TitleFontFamily">pack://this:,,,/FirstFloor.ModernUI;component/Resources/Fonts/#Gunship Condensed</FontFamily>-->
+
+	<sys:Double x:Key="SmallFontSize">11</sys:Double>
 
     <!-- layout margins -->
     <Thickness x:Key="RootMargin">-42,-8,-16,-16</Thickness>

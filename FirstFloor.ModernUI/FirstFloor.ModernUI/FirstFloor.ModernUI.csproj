@@ -72,6 +72,15 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Audiowide-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Gunship-Condensed.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Gunship-Regular.ttf" />
+  </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -259,6 +259,8 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.es.resx">
       <LastGenOutput>Translations.es.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>
+      </CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Texts\Translations.fr.resx">
       <LastGenOutput>Translations.fr.Designer.cs</LastGenOutput>
@@ -276,5 +278,13 @@
       <LastGenOutput>Translations.it.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Fonts\Audiowide-Regular.ttf" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Fonts\Gunship-Condensed.ttf" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Fonts\Gunship-Regular.ttf">
+      <CustomToolNamespace>
+      </CustomToolNamespace>
+    </Content>
   </ItemGroup>
 </Project>
