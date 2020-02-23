@@ -37,6 +37,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty IsTitleVisibleProperty = DependencyProperty.Register("IsTitleVisible", typeof(bool), typeof(ModernWindow), new PropertyMetadata(false));
         /// <summary>
+        /// Identifies the IsIconVisible dependency property.
+        /// </summary>
+        public static readonly DependencyProperty IsIconVisibleProperty = DependencyProperty.Register("IsIconVisible", typeof(bool), typeof(ModernWindow), new PropertyMetadata(false));
+        /// <summary>
         /// Identifies the LogoData dependency property.
         /// </summary>
         public static readonly DependencyProperty LogoDataProperty = DependencyProperty.Register("LogoData", typeof(Geometry), typeof(ModernWindow));
@@ -237,6 +241,15 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             get { return (bool)GetValue(IsTitleVisibleProperty); }
             set { SetValue(IsTitleVisibleProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the window icon is visible in the UI.
+        /// </summary>
+        public bool IsIconVisible
+		{
+            get { return (bool)GetValue(IsIconVisibleProperty); }
+            set { SetValue(IsIconVisibleProperty, value); }
         }
 
         /// <summary>
