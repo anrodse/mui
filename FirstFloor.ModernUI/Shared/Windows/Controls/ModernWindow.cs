@@ -40,10 +40,6 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// Identifies the IsIconVisible dependency property.
         /// </summary>
         public static readonly DependencyProperty IsIconVisibleProperty = DependencyProperty.Register("IsIconVisible", typeof(bool), typeof(ModernWindow), new PropertyMetadata(false));
-		/// <summary>
-		/// Identifies the IsNavigationVisible dependency property.
-		/// </summary>
-		public static readonly DependencyProperty IsNavigationVisibleProperty = DependencyProperty.Register("IsNavigationVisible", typeof(bool), typeof(ModernWindow), new PropertyMetadata(false));
         /// <summary>
         /// Identifies the LogoData dependency property.
         /// </summary>
@@ -147,8 +143,6 @@ namespace FirstFloor.ModernUI.Windows.Controls
 						e.CanExecute = command.CanExecute(parameter);
 					}
 				}
-
-				UpdateNavigationVisibility();
 			}
 		}
 
@@ -255,15 +249,6 @@ namespace FirstFloor.ModernUI.Windows.Controls
         }
 
 		/// <summary>
-		/// Gets or sets a value indicating whether the window navigation menu is visible in the UI.
-		/// </summary>
-		public bool IsNavigationVisible
-		{
-			get { return (bool)GetValue(IsNavigationVisibleProperty); }
-			private set { SetValue(IsNavigationVisibleProperty, value); }
-		}
-
-		/// <summary>
 		/// Gets or sets the path data for the logo displayed in the title area of the window.
 		/// </summary>
 		public Geometry LogoData
@@ -300,20 +285,5 @@ namespace FirstFloor.ModernUI.Windows.Controls
             set { SetValue(LinkNavigatorProperty, value); }
         }
 
-		private void UpdateNavigationVisibility()
-		{
-			// Hides menu if selected link group is empty
-			LinkGroup selectedlink = MenuLinkGroups.FirstOrDefault(x => x.SelectedLink?.Source.Equals(ContentSource.OriginalString) ?? false);
-
-			if (selectedlink == null)
-			{
-				IsNavigationVisible = false;
-			}
-			else
-			{
-				int c = MenuLinkGroups.Count(x => selectedlink.GroupKey?.Equals(x.GroupKey) ?? (selectedlink.GroupKey == null && x.GroupKey == null));
-				IsNavigationVisible = c > 0;
-			}
-		}
 	}
 }

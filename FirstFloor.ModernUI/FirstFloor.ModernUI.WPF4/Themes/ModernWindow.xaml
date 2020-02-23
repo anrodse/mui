@@ -144,28 +144,12 @@
                                         </StackPanel>
                                     </Grid>
 
-									<Grid Grid.Row="1" Visibility="{TemplateBinding IsNavigationVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-										<Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="42" />
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
+                                    <!-- main menu -->
+									<controls:ModernMenu Grid.Row="1" IsBackButtonVisible="True"
+                                                         SelectedSource="{Binding Source, ElementName=ContentFrame, Mode=TwoWay}"
+                                                         LinkGroups="{TemplateBinding MenuLinkGroups}" />
 
-                                        <!-- back button -->
-                                        <controls:ModernButton Margin="8,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                                               EllipseDiameter="24" IconWidth="12" IconHeight="12"
-                                                               IconData="F1 M 33,22L 33,26L 19.75,26L 27,33L 20.5,33L 11,24L 20.5,15L 27,15L 19.75,22L 33,22 Z"
-                                                               Command="NavigationCommands.BrowseBack"
-                                                               CommandTarget="{Binding ElementName=ContentFrame}" 
-                                                               ToolTip="{x:Static modernui:Translations.Back}"
-                                                               shell:WindowChrome.IsHitTestVisibleInChrome="True" />
-
-                                        <!-- main menu -->
-                                        <controls:ModernMenu Grid.Column="1"
-                                                             SelectedSource="{Binding Source, ElementName=ContentFrame, Mode=TwoWay}"
-                                                             LinkGroups="{TemplateBinding MenuLinkGroups}" />
-                                    </Grid>
-
-                                    <!-- content frame -->
+									<!-- content frame -->
                                     <controls:ModernFrame x:Name="ContentFrame" Grid.Row="3" Grid.RowSpan="2" Margin="42,8,16,16" Source="{Binding ContentSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}"/>
 
                                     <!-- resize grip -->

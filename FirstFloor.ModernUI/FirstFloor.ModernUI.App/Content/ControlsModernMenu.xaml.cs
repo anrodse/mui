@@ -30,13 +30,19 @@ namespace FirstFloor.ModernUI.App.Content
         {
             InitializeComponent();
 
+			// Exceptions not controlled, but still useful
+
             // add group command
             this.AddGroup.Command = new RelayCommand(o => {
                 this.Menu.LinkGroups.Add(new LinkGroup {
-                    DisplayName = string.Format(CultureInfo.InvariantCulture, "group {0}",
-                    ++groupId)
+                    DisplayName = string.Format(CultureInfo.InvariantCulture, "group {0}", ++groupId)
                 });
-            });
+				this.Menu.LinkGroups.Last().Links.Add(new Link
+				{
+					DisplayName = string.Format(CultureInfo.InvariantCulture, "link {0}", ++linkId),
+					Source = new Uri(string.Format(CultureInfo.InvariantCulture, "/link{0}", linkId), UriKind.Relative)
+				});
+			});
 
             // add link to selected group command
             this.AddLink.Command = new RelayCommand(o => {
@@ -49,12 +55,14 @@ namespace FirstFloor.ModernUI.App.Content
             // remove selected group command
             this.RemoveGroup.Command = new RelayCommand(o => {
                 this.Menu.LinkGroups.Remove(this.Menu.SelectedLinkGroup);
-            }, o => this.Menu.SelectedLinkGroup != null);
+				this.Menu.SelectedLink= this.Menu.LinkGroups[0].Links[0];
+			}, o => this.Menu.SelectedLinkGroup != null);
 
             // remove selected linkcommand
             this.RemoveLink.Command = new RelayCommand(o => {
                 this.Menu.SelectedLinkGroup.Links.Remove(this.Menu.SelectedLink);
-            }, o => this.Menu.SelectedLinkGroup != null && this.Menu.SelectedLink != null);
+				this.Menu.SelectedLink = this.Menu.LinkGroups[0].Links[0];
+			}, o => this.Menu.SelectedLinkGroup != null && this.Menu.SelectedLink != null);
 
             // log SourceChanged events
             this.Menu.SelectedSourceChanged += (o, e) => {
