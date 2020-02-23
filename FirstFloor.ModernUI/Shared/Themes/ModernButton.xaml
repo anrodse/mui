@@ -35,9 +35,9 @@
                                   Stretch="Uniform" HorizontalAlignment="Center"
                                   VerticalAlignment="Center"/>
                         </Grid>
-                        <Grid Grid.Column="1" >
+                        <Grid Grid.Column="1">
                             <TextBlock DataContext="{TemplateBinding Content}"
-                                       Visibility="{Binding Converter={StaticResource NullOrEmptyStringToVisibilityConverter}, ConverterParameter=inverse}"
+                                       Visibility="{Binding Converter={StaticResource NullOrEmptyToVisibilityConverter}, ConverterParameter=inverse}"
                                        Text="{Binding}"
                                        TextTrimming="CharacterEllipsis"
                                        Foreground="{TemplateBinding Foreground}"

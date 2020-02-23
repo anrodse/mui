@@ -40,6 +40,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// Identifies the IsIconVisible dependency property.
         /// </summary>
         public static readonly DependencyProperty IsIconVisibleProperty = DependencyProperty.Register("IsIconVisible", typeof(bool), typeof(ModernWindow), new PropertyMetadata(false));
+		/// <summary>
+		/// Identifies the IsNavigationVisible dependency property.
+		/// </summary>
+		public static readonly DependencyProperty IsNavigationVisibleProperty = DependencyProperty.Register("IsNavigationVisible", typeof(bool), typeof(ModernWindow), new PropertyMetadata(false));
         /// <summary>
         /// Identifies the LogoData dependency property.
         /// </summary>
@@ -133,35 +137,33 @@ namespace FirstFloor.ModernUI.Windows.Controls
             e.CanExecute = true;
 
             if (this.LinkNavigator != null && this.LinkNavigator.Commands != null) {
-                // in case of command uri, check if ICommand.CanExecute is true
-                Uri uri;
-                string parameter;
-                string targetName;
+				// in case of command uri, check if ICommand.CanExecute is true
 
-                // TODO: CanNavigate is invoked a lot, which means a lot of parsing. need improvements??
-                if (NavigationHelper.TryParseUriWithParameters(e.Parameter, out uri, out parameter, out targetName)) {
-                    ICommand command;
-                    if (this.LinkNavigator.Commands.TryGetValue(uri, out command)) {
-                        e.CanExecute = command.CanExecute(parameter);
-                    }
-                }
-            }
-        }
+				// TODO: CanNavigate is invoked a lot, which means a lot of parsing. need improvements??
+				if (NavigationHelper.TryParseUriWithParameters(e.Parameter, out Uri uri, out string parameter, out string targetName))
+				{
+					if (this.LinkNavigator.Commands.TryGetValue(uri, out ICommand command))
+					{
+						e.CanExecute = command.CanExecute(parameter);
+					}
+				}
+
+				UpdateNavigationVisibility();
+			}
+		}
 
         private void OnNavigateLink(object sender, ExecutedRoutedEventArgs e)
         {
-            if (this.LinkNavigator != null) {
-                 Uri uri;
-                string parameter;
-                string targetName;
+            if (this.LinkNavigator != null)
+			{
+				if (NavigationHelper.TryParseUriWithParameters(e.Parameter, out Uri uri, out string parameter, out string targetName))
+				{
+					this.LinkNavigator.Navigate(uri, e.Source as FrameworkElement, parameter);
+				}
+			}
+		}
 
-                if (NavigationHelper.TryParseUriWithParameters(e.Parameter, out uri, out parameter, out targetName)) {
-                    this.LinkNavigator.Navigate(uri, e.Source as FrameworkElement, parameter);
-                }
-            }
-        }
-
-        private void OnCanResizeWindow(object sender, CanExecuteRoutedEventArgs e)
+		private void OnCanResizeWindow(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = this.ResizeMode == ResizeMode.CanResize || this.ResizeMode == ResizeMode.CanResizeWithGrip;
         }
@@ -252,10 +254,19 @@ namespace FirstFloor.ModernUI.Windows.Controls
             set { SetValue(IsIconVisibleProperty, value); }
         }
 
-        /// <summary>
-        /// Gets or sets the path data for the logo displayed in the title area of the window.
-        /// </summary>
-        public Geometry LogoData
+		/// <summary>
+		/// Gets or sets a value indicating whether the window navigation menu is visible in the UI.
+		/// </summary>
+		public bool IsNavigationVisible
+		{
+			get { return (bool)GetValue(IsNavigationVisibleProperty); }
+			private set { SetValue(IsNavigationVisibleProperty, value); }
+		}
+
+		/// <summary>
+		/// Gets or sets the path data for the logo displayed in the title area of the window.
+		/// </summary>
+		public Geometry LogoData
         {
             get { return (Geometry)GetValue(LogoDataProperty); }
             set { SetValue(LogoDataProperty, value); }
@@ -288,5 +299,21 @@ namespace FirstFloor.ModernUI.Windows.Controls
             get { return (ILinkNavigator)GetValue(LinkNavigatorProperty); }
             set { SetValue(LinkNavigatorProperty, value); }
         }
-    }
+
+		private void UpdateNavigationVisibility()
+		{
+			// Hides menu if selected link group is empty
+			LinkGroup selectedlink = MenuLinkGroups.FirstOrDefault(x => x.SelectedLink?.Source.Equals(ContentSource.OriginalString) ?? false);
+
+			if (selectedlink == null)
+			{
+				IsNavigationVisible = false;
+			}
+			else
+			{
+				int c = MenuLinkGroups.Count(x => selectedlink.GroupKey?.Equals(x.GroupKey) ?? (selectedlink.GroupKey == null && x.GroupKey == null));
+				IsNavigationVisible = c > 0;
+			}
+		}
+	}
 }

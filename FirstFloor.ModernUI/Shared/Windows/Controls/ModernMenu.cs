@@ -250,15 +250,18 @@ namespace FirstFloor.ModernUI.Windows.Controls
                     selectedLink = linkInfo.Link;
                 }
                 else {
-                    // could not find link and group based on selected source, fall back to selected link group
-                    selectedGroup = this.SelectedLinkGroup;
+					// could not find link and group based on selected source, fall back to selected link group
+					selectedGroup = null;
 
-                    // if selected group doesn't exist in available groups, select first group
-                    if (!this.LinkGroups.Any(g => g == selectedGroup)) {
-                        selectedGroup = this.LinkGroups.FirstOrDefault();
-                    }
-                }
-            }
+					// -> old style
+					//selectedGroup = this.SelectedLinkGroup;
+
+					//// if selected group doesn't exist in available groups, select first group
+					//if (!this.LinkGroups.Any(g => g == selectedGroup)) {
+					//    selectedGroup = this.LinkGroups.FirstOrDefault();
+					//}
+				}
+			}
             
             ReadOnlyLinkGroupCollection groups = null;
             if (selectedGroup != null) {
