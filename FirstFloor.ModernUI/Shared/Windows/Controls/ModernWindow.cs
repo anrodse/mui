@@ -52,10 +52,18 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// Identifies the ContentLoader dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentLoaderProperty = DependencyProperty.Register("ContentLoader", typeof(IContentLoader), typeof(ModernWindow), new PropertyMetadata(new DefaultContentLoader()));
-        /// <summary>
-        /// Identifies the LinkNavigator dependency property.
-        /// </summary>
-        public static DependencyProperty LinkNavigatorProperty = DependencyProperty.Register("LinkNavigator", typeof(ILinkNavigator), typeof(ModernWindow), new PropertyMetadata(new DefaultLinkNavigator()));
+		/// <summary>
+		/// Defines the ContentSource dependency property.
+		/// </summary>
+		public static readonly DependencyProperty StatusBarSourceProperty = DependencyProperty.Register("StatusBarSource", typeof(Uri), typeof(ModernWindow));
+		/// <summary>
+		/// Identifies the StatusBarLoader dependency property.
+		/// </summary>
+		public static readonly DependencyProperty StatusBarLoaderProperty = DependencyProperty.Register("StatusBarLoader", typeof(IContentLoader), typeof(ModernWindow), new PropertyMetadata(new DefaultContentLoader()));
+		/// <summary>
+		/// Identifies the LinkNavigator dependency property.
+		/// </summary>
+		public static DependencyProperty LinkNavigatorProperty = DependencyProperty.Register("LinkNavigator", typeof(ILinkNavigator), typeof(ModernWindow), new PropertyMetadata(new DefaultLinkNavigator()));
 
         private Storyboard backgroundAnimation;
 
@@ -275,11 +283,29 @@ namespace FirstFloor.ModernUI.Windows.Controls
             set { SetValue(ContentLoaderProperty, value); }
         }
 
-        /// <summary>
-        /// Gets or sets the link navigator.
-        /// </summary>
-        /// <value>The link navigator.</value>
-        public ILinkNavigator LinkNavigator
+		/// <summary>
+		/// Gets or sets the source uri of the current status bar.
+		/// </summary>
+		public Uri StatusBarSource
+		{
+			get { return (Uri)GetValue(StatusBarSourceProperty); }
+			set { SetValue(StatusBarSourceProperty, value); }
+		}
+
+		/// <summary>
+		/// Gets or sets the status bar loader.
+		/// </summary>
+		public IContentLoader StatusBarLoader
+		{
+			get { return (IContentLoader)GetValue(StatusBarLoaderProperty); }
+			set { SetValue(StatusBarLoaderProperty, value); }
+		}
+
+		/// <summary>
+		/// Gets or sets the link navigator.
+		/// </summary>
+		/// <value>The link navigator.</value>
+		public ILinkNavigator LinkNavigator
         {
             get { return (ILinkNavigator)GetValue(LinkNavigatorProperty); }
             set { SetValue(LinkNavigatorProperty, value); }

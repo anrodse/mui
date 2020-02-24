@@ -26,7 +26,7 @@
         </Grid>
 
         <!-- the default page root, no margin settings required -->
-        <Grid>
+		<Grid>
             <Rectangle Grid.RowSpan="2" />
             <TextBlock Text="page" />
 
