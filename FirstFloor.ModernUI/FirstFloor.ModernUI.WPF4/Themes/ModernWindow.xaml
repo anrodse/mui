@@ -98,11 +98,10 @@
 											</ItemsControl.ItemTemplate>
 										</ItemsControl>
 
-										<!-- logo (visible only when LogoData is not null) -->
-										<Border Grid.Column="3" Background="{DynamicResource Accent}" VerticalAlignment="Top" Width="36" Height="36" Margin="8,0"
-                                                DataContext="{TemplateBinding LogoData}"
-                                                Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=inverse}">
-											<Path Data="{Binding}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
+										<!-- Logo (visible only when Logo is not null) // Background="{DynamicResource Accent}" // -->
+										<Border Grid.Column="3" Height="26" Margin="8,0" VerticalAlignment="Top"
+                                                Visibility="{TemplateBinding Logo, Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=inverse}">
+											<Image Source="{TemplateBinding Logo}" Margin="0" Stretch="Uniform" HorizontalAlignment="Center" />
 										</Border>
 
 										<!-- window system buttons-->

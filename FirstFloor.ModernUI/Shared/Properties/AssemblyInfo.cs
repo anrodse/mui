@@ -16,9 +16,9 @@ using System;
 [assembly: AssemblyDescription("Modern UI for WPF 4.5")]
 #endif
 [assembly: AssemblyConfiguration("retail")]
-[assembly: AssemblyCompany("First Floor Software")]
+[assembly: AssemblyCompany("anrodse")]
 [assembly: AssemblyProduct("ModernUI")]
-[assembly: AssemblyCopyright("Copyright © First Floor Software 2013-2016")]
+[assembly: AssemblyCopyright("anrodse (Copyleft - All Wrongs Reserved) 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -40,7 +40,7 @@ using System;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.1.*")]
+[assembly: AssemblyVersion("1.2.*")]
 //[assembly: AssemblyVersion("1.0.0.0")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
